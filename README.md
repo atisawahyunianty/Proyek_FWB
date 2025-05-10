@@ -1,8 +1,8 @@
-<h1 align="center">DesaInvolve</h1>
+<h1 align="center">WritersHub</h1>
 
 <hr/>
 
-<h3 align="center">sistem informasi kegiatan desa</h3>
+<h3 align="center">Platform Karya Buku Digital: Unggah dan Baca</h3>
 
 ---
 
@@ -21,31 +21,34 @@
 
 ## 👥 Role dan Fitur-fiturnya
 
-### 🏛️ Pemerintah (Admin)
-Role yang mewakili aparatur desa, yang bertanggung jawab memverifikasi dan mengelola kegiatan serta memantau partisipasi warga.
+### Admin
+Admin adalah peran yang memiliki kontrol penuh atas platform dan bertanggung jawab untuk menjaga kelancaran operasional serta mengelola konten yang ada.
 
 **Fitur utama:**
-- Melihat daftar kegiatan (pending, approved, rejected)
-- Menyetujui atau menolak kegiatan yang diajukan penyelenggara
-- Melihat laporan pendaftaran warga ke kegiatan
-- Melihat data warga dan penyelenggara
+a.   Login admin
+b.   Lihat semua buku/cerita c.   Bisa melihat ulasan
+d.   Bisa melilhat akun user
+e.   Menghapus akun pengguna, misalnya jika melanggar aturan.
+f.   Menghapus ulasan yang mengandung kata kasar, spam, atau tidak pantas g.   Menghapus buku yang tidak sesuai aturan
 
-### 🧑‍💼 Penyelenggara
-Role organisasi atau kelompok yang bertanggung jawab mengusulkan dan menjalankan kegiatan.
-
-**Fitur utama:**
-- Mengajukan kegiatan
-- Melihat status kegiatan yang diajukan
-- Melihat daftar warga yang mendaftar ke kegiatan mereka
-
-### 👤 Warga
-Role masyarakat umum yang bisa mendaftar kegiatan desa dan memberikan komentar.
+### Penulis
+Penulis adalah peran yang memiliki hak untuk mengunggah dan mengelola karya mereka, seperti buku atau cerita yang ingin dibagikan dengan pembaca.
 
 **Fitur utama:**
-- Melihat daftar kegiatan yang tersedia (status approved)
-- Mendaftar kegiatan yang diinginkan
-- Melihat riwayat pendaftaran kegiatan
-- Memberikan komentar terhadap kegiatan
+a.   Login
+b.   Mengelola Cerita, Penulis dapat mengedit informasi cerita (judul, deskripsi, cover, status).
+c.   Mengelola Bab: Penulis bisa menambah, mengedit, dan menghapus chapter dalam ceritanyanya.
+d.   Mengelola Ulasan: Penulis bisa melihat ulasan dari pembaca tentang bukunya. e.   Penulis bisa melihat profil pembaca
+
+### Pembaca
+Pembaca  adalah  peran  yang  mengonsumsi  karya  yang  diunggah  oleh  penulis  dan memberikan interaksi balik berupa ulasan, rating, dan preferensi bacaan mereka.
+
+**Fitur utama:**
+a.   Login
+b.   Membaca  Buku:  Pembaca  dapat  membaca  buku  yang  telah  dipublikasikan, berpindah antar bab, dan melanjutkan bacaan mereka.
+c.   Memberikan Ulasan: Pembaca dapat memberikan ulasan dan rating untuk buku yang sudah dibaca.
+d.   Menyimpan buku: Pembaca dapat menyimpan buku ke bookmark untuk dibaca di kemudian hari 
+
 
 ---
 
