@@ -29,6 +29,9 @@ Admin adalah peran yang memiliki kontrol penuh atas platform dan bertanggung jaw
 - Lihat semua buku/cerita 
 - Bisa melihat ulasan
 - Bisa melilhat akun user
+- Menghapus akun pengguna, misalnya jika melanggar aturan
+- Menghapus ulasan yang mengandung kata kasar, spam, atau tidak pantas
+- Menghapus buku yang tidak sesuai aturan
 
 ### 🧑‍💼 Penyelenggara
 Role organisasi atau kelompok yang bertanggung jawab mengusulkan dan menjalankan kegiatan.
