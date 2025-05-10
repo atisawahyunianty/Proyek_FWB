@@ -11,8 +11,8 @@
 </p>
 
 <p align="center">
-  <strong>WANTI</strong><br/><br/>
-  <strong>D0223026</strong><br/><br/>
+  <strong>ATISA WAHYUNIANTI</strong><br/><br/>
+  <strong>D0223328</strong><br/><br/>
   <strong>Framework Web Based</strong><br/><br/>
   <strong>2025</strong>
 </p>
