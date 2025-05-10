@@ -1,8 +1,8 @@
-<h1 align="center">DesaInvolve</h1>
+<h1 align="center">WritersHub</h1>
 
 <hr/>
 
-<h3 align="center">sistem informasi kegiatan desa</h3>
+<h3 align="center">Platfrom Karya Buku Digital: Unggah dan Baca</h3>
 
 ---
 
@@ -11,8 +11,8 @@
 </p>
 
 <p align="center">
-  <strong>WANTI</strong><br/><br/>
-  <strong>D0223026</strong><br/><br/>
+  <strong>Atisa Wahyunianti</strong><br/><br/>
+  <strong>D0223328</strong><br/><br/>
   <strong>Framework Web Based</strong><br/><br/>
   <strong>2025</strong>
 </p>
@@ -21,14 +21,14 @@
 
 ## 👥 Role dan Fitur-fiturnya
 
-### 🏛️ Pemerintah (Admin)
-Role yang mewakili aparatur desa, yang bertanggung jawab memverifikasi dan mengelola kegiatan serta memantau partisipasi warga.
+### Admin
+Admin adalah peran yang memiliki kontrol penuh atas platform dan bertanggung jawab untuk menjaga kelancaran operasional serta mengelola konten yang ada.
 
 **Fitur utama:**
-- Melihat daftar kegiatan (pending, approved, rejected)
-- Menyetujui atau menolak kegiatan yang diajukan penyelenggara
-- Melihat laporan pendaftaran warga ke kegiatan
-- Melihat data warga dan penyelenggara
+- Login admin
+- Lihat semua buku/cerita 
+- Bisa melihat ulasan
+- Bisa melilhat akun user
 
 ### 🧑‍💼 Penyelenggara
 Role organisasi atau kelompok yang bertanggung jawab mengusulkan dan menjalankan kegiatan.
