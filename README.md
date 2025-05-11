@@ -133,6 +133,7 @@ Pembaca  adalah  peran  yang  mengonsumsi  karya  yang  diunggah  oleh  penulis 
 | user_id    | ForeignId     | ID pengguna (relasi ke tabel `users`, unik, `onDelete: cascade`)           |
 | name       | String        | Nama lengkap pengguna                                                       |
 | bio        | Text          | Deskripsi atau biografi pengguna (boleh kosong / nullable)                 |
+| social_media_links      | Text          | Kolom ini digunakan untuk menyimpan tautan (boleh kosong / nullable)                 |
 | created_at | Timestamps    | Tanggal dan waktu profil dibuat                                            |
 | updated_at | Timestamps    | Tanggal dan waktu profil diperbarui                                        |
 
@@ -150,12 +151,20 @@ Pembaca  adalah  peran  yang  mengonsumsi  karya  yang  diunggah  oleh  penulis 
 
 ## 🔗 Relasi Antar Tabel
 
-| Tabel 1        | Relasi | Tabel 2         | Jenis Relasi   | Keterangan                                              |
-|----------------|--------|------------------|----------------|----------------------------------------------------------|
-| `users`        | 1 : 1  | `wargas`         | One to One     | Satu user bisa menjadi warga (nullable)                  |
-| `users`        | 1 : 1  | `pemerintahs`    | One to One     | Satu user adalah satu akun pemerintah                    |
-| `users`        | 1 : 1  | `penyelenggaras` | One to One     | Satu user adalah satu akun penyelenggara                |
-| `penyelenggaras` | 1 : N | `kegiatans`      | One to Many    | Satu penyelenggara bisa membuat banyak kegiatan         |
-| `wargas`       | N : N  | `kegiatans`      | Many to Many   | Lewat tabel `pendaftarans`                              |
-| `wargas`       | 1 : N  | `komentars`      | One to Many    | Warga bisa membuat banyak komentar                      |
-| `kegiatans`    | 1 : N  | `komentars`      | One to Many    | Satu kegiatan bisa memiliki banyak komentar              |
+| **Tabel 1** | **Tabel 2** | **Jenis Relasi** | **Penjelasan**                                                                       |
+| ----------- | ----------- | ---------------- | ------------------------------------------------------------------------------------ |
+| users       | books       | One-to-Many      | Satu user (penulis) bisa menulis banyak buku, satu buku hanya dimiliki satu user.    |
+| books       | users       | Many-to-One      | Banyak buku bisa dimiliki oleh satu user (penulis).                                 |
+| books       | chapters    | One-to-Many      | Satu buku memiliki banyak bab (chapter), satu chapter hanya milik satu buku.         |
+| chapters    | books       | Many-to-One      | Banyak chapter (bab) berhubungan dengan satu buku.                                  |
+| users       | reviews     | One-to-Many      | Satu user bisa menulis banyak ulasan, satu ulasan hanya ditulis satu user.           |
+| reviews     | users       | Many-to-One      | Banyak ulasan bisa ditulis oleh satu user.                                           |
+| books       | reviews     | One-to-Many      | Satu buku bisa memiliki banyak ulasan, satu ulasan hanya untuk satu buku.            |
+| reviews     | books       | Many-to-One      | Banyak ulasan berhubungan dengan satu buku.                                          |
+| users       | bookmarks   | One-to-Many      | Satu user bisa menyimpan banyak bookmark, satu bookmark hanya milik satu user.       |
+| bookmarks   | users       | Many-to-One      | Banyak bookmark bisa dimiliki oleh satu user.                                        |
+| books       | bookmarks   | One-to-Many      | Satu buku bisa dibookmark oleh banyak user, satu bookmark hanya untuk satu buku.     |
+| bookmarks   | books       | Many-to-One      | Banyak bookmark berhubungan dengan satu buku.                                        |
+| books       | genres      | Many-to-Many     | Satu buku bisa memiliki banyak genre, dan satu genre bisa dimiliki oleh banyak buku. |
+| genres      | books       | Many-to-Many     | Banyak genre bisa dimiliki oleh banyak buku.                                         |
+| users       | profiles    | One-to-One       | Satu user hanya memiliki satu profil, dan satu profil hanya milik satu user.        |
