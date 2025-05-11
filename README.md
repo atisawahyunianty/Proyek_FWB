@@ -59,16 +59,16 @@ Pembaca  adalah  peran  yang  mengonsumsi  karya  yang  diunggah  oleh  penulis 
 
 ### 1. `users`
 
-| Field              | Tipe Data     | Keterangan                                  |
-|-------------------|---------------|---------------------------------------------|
-| id                | BIGINT        | Primary Key (auto increment)                |
-| name              | String        | Nama pengguna                               |
-| email             | String        | Email unik pengguna                         |
-| email_verified_at | Timestamp     | Tanggal verifikasi email (nullable)         |
-| password          | String        | Password terenkripsi                        |
-| role              | String        | Peran pengguna (warga, pemerintah, penyelenggara) |
-| created_at        | Timestamp     | Tanggal dibuat                              |
-| updated_at        | Timestamp     | Tanggal diperbarui                          |
+| Nama field      | Tipe data                        | Keterangan                                      |
+|------------------|----------------------------------|--------------------------------------------------|
+| user_id         | BigIncrements                    | ID unik pengguna (Primary Key, auto)           |
+| username        | String                           | Nama pengguna yang digunakan untuk login        |
+| email           | String                           | Alamat email pengguna, unik                     |
+| password        | String                           | Kata sandi terenkripsi untuk login              |
+| role            | Enum('admin', 'penulis', 'pembaca') | Menentukan hak akses                           |
+| created_at      | Timestamps                       | Tanggal dan waktu akun dibuat                  |
+| updated_at      | Timestamps                       | Tanggal dan waktu akun terakhir diperbarui     |
+
 
 ### 2. `wargas`
 
