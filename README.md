@@ -83,60 +83,68 @@ Pembaca  adalah  peran  yang  mengonsumsi  karya  yang  diunggah  oleh  penulis 
 | created_at    | Timestamps  | Tanggal dan waktu akun dibuat           |
 | updated_at    | Timestamps  | Tanggal dan waktu akun diperbarui       |
 
-### 3. `pemerintahs`
+### 3. Tabel `chapters`
 
-| Field     | Tipe Data | Keterangan                            |
-|-----------|-----------|----------------------------------------|
-| id        | BIGINT    | Primary key                           |
-| user_id   | BIGINT    | Foreign key ke `users`                |
-| jabatan   | String    | Nama jabatan pemerintah (nullable)    |
-| created_at| Timestamp | Tanggal dibuat                        |
-| updated_at| Timestamp | Tanggal diperbarui                    |
+| Nama field      | Tipe data   | Keterangan                              |
+|------------------|-------------|------------------------------------------|
+| chapter_id      | BigIncrements | ID unik untuk tiap bab (Primary Key)   |
+| book_id         | foreignId   | ID buku (foreign key ke `books`)       |
+| title           | String      | Judul bab                               |
+| content         | String      | Isi cerita dari bab tersebut           |
+| chapter_number  | Int         | Nomor urutan bab (contoh: 1, 2, 3...)   |
+| created_at      | Timestamps  | Tanggal dibuat                          |
+| updated_at      | Timestamps  | Tanggal diperbarui                      |
 
-### 4. `penyelenggaras`
+### 4. Tabel `reviews`
 
-| Field            | Tipe Data | Keterangan                               |
-|------------------|-----------|------------------------------------------|
-| id               | BIGINT    | Primary key (auto increment)             |
-| user_id          | BIGINT    | Foreign key ke `users`                   |
-| nama_organisasi  | String    | Nama organisasi/instansi penyelenggara   |
-| created_at       | Timestamp | Tanggal dibuat                           |
-| updated_at       | Timestamp | Tanggal diperbarui                       |
+| Nama field    | Tipe data   | Keterangan                                   |
+|---------------|-------------|-----------------------------------------------|
+| review_id     | BigIncrements | ID unik untuk ulasan (Primary Key, auto)  |
+| book_id       | foreignId   | ID buku yang diulas                         |
+| user_id       | foreignId   | ID pembaca yang memberi ulasan              |
+| review_text   | String      | Isi teks ulasan dari pembaca                |
+| created_at    | Timestamps  | Tanggal dibuat                              |
+| updated_at    | Timestamps  | Tanggal diperbarui                          |
 
-### 5. `kegiatans`
+### 5. Tabel `bookmarks`
 
-| Field             | Tipe Data | Keterangan                                         |
-|-------------------|-----------|----------------------------------------------------|
-| id                | BIGINT    | Primary key (auto increment)                      |
-| judul             | String    | Judul kegiatan                                     |
-| deskripsi         | Text      | Deskripsi kegiatan                                 |
-| tanggal           | Date      | Tanggal pelaksanaan kegiatan                       |
-| lokasi            | String    | Lokasi kegiatan                                    |
-| status            | ENUM      | Status kegiatan (pending, approved, rejected)      |
-| penyelenggara_id  | BIGINT    | Foreign key ke `users` (penyelenggara)             |
-| created_at        | Timestamp | Tanggal dibuat                                     |
-| updated_at        | Timestamp | Tanggal diperbarui                                 |
+| Nama field    | Tipe data   | Keterangan                                  |
+|---------------|-------------|----------------------------------------------|
+| bookmark_id   | BigIncrements | ID unik untuk tiap bookmark (Primary Key) |
+| book_id       | foreignId   | ID buku yang disimpan                      |
+| user_id       | foreignId   | ID pembaca yang menyimpan buku             |
+| created_at    | Timestamps  | Tanggal dibuat                             |
+| updated_at    | Timestamps  | Tanggal diperbarui                         |
 
-### 6. `pendaftarans`
+### 6. Tabel `genres`
 
-| Field        | Tipe Data | Keterangan                       |
-|--------------|-----------|----------------------------------|
-| id           | BIGINT    | Primary key (auto increment)     |
-| warga_id     | BIGINT    | Foreign key ke `wargas`         |
-| kegiatan_id  | BIGINT    | Foreign key ke `kegiatans`      |
-| created_at   | Timestamp | Tanggal dibuat                   |
-| updated_at   | Timestamp | Tanggal diperbarui               |
+| Field      | Tipe Data     | Keterangan                                 |
+|------------|---------------|--------------------------------------------|
+| id         | BigIncrements | ID unik genre (Primary Key, auto increment)|
+| name       | String        | Nama genre, bersifat unik                  |
+| created_at | Timestamps    | Tanggal dan waktu genre dibuat             |
+| updated_at | Timestamps    | Tanggal dan waktu genre diperbarui         |
 
-### 7. `komentars`
+### 7. Tabel `profil`
 
-| Field        | Tipe Data | Keterangan                               |
-|--------------|-----------|------------------------------------------|
-| id           | BIGINT    | Primary key (auto increment)             |
-| warga_id     | BIGINT    | Foreign key ke `wargas`                 |
-| kegiatan_id  | BIGINT    | Foreign key ke `kegiatans`              |
-| isi_komentar | Text      | Isi komentar warga terhadap kegiatan     |
-| created_at   | Timestamp | Tanggal komentar dibuat                  |
-| updated_at   | Timestamp | Tanggal komentar diperbarui              |
+| Field      | Tipe Data     | Keterangan                                                                  |
+|------------|---------------|-----------------------------------------------------------------------------|
+| id         | BigIncrements | ID unik profil (Primary Key, auto increment)                               |
+| user_id    | ForeignId     | ID pengguna (relasi ke tabel `users`, unik, `onDelete: cascade`)           |
+| name       | String        | Nama lengkap pengguna                                                       |
+| bio        | Text          | Deskripsi atau biografi pengguna (boleh kosong / nullable)                 |
+| created_at | Timestamps    | Tanggal dan waktu profil dibuat                                            |
+| updated_at | Timestamps    | Tanggal dan waktu profil diperbarui                                        |
+
+### 8. Tabel `book_genre`
+
+| Field     | Tipe Data     | Keterangan                                                            |
+|-----------|---------------|------------------------------------------------------------------------|
+| id        | BigIncrements | ID unik (Primary Key, auto increment)                                 |
+| book_id   | ForeignId     | ID buku (relasi ke tabel `books`, `onDelete: cascade`)                |
+| genre_id  | ForeignId     | ID genre (relasi ke tabel `genres`, `onDelete: cascade`)              |
+
+
 
 ---
 
