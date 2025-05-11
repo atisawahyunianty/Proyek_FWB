@@ -70,18 +70,18 @@ Pembaca  adalah  peran  yang  mengonsumsi  karya  yang  diunggah  oleh  penulis 
 | updated_at      | Timestamps                       | Tanggal dan waktu akun terakhir diperbarui     |
 
 
-### 2. `wargas`
+### 2. Tabel `books`
 
-| Field         | Tipe Data | Keterangan                             |
-|---------------|-----------|----------------------------------------|
-| id            | BIGINT    | Primary key (auto increment)           |
-| nik           | String    | Nomor Induk Kependudukan (unik)        |
-| nama          | String    | Nama lengkap warga                     |
-| tanggal_lahir | Date      | Tanggal lahir warga                    |
-| alamat        | String    | Alamat tempat tinggal                 |
-| user_id       | BIGINT    | Relasi ke tabel `users`               |
-| created_at    | Timestamp | Tanggal dibuat                         |
-| updated_at    | Timestamp | Tanggal diperbarui                     |
+| Nama field    | Tipe data   | Keterangan                              |
+|---------------|-------------|------------------------------------------|
+| book_id       | BigIncrements | ID unik buku (Primary Key, auto)       |
+| user_id       | foreignId   | ID penulis (foreign key dari `users`)   |
+| title         | String      | Judul buku yang ditampilkan kepada pembaca                         |
+| description   | String      | Deskripsi singkat isi buku              |
+| cover_image   | String      | Lokasi gambar sampul (URL atau path)    |
+| status        | Enum        | Status buku: ‘terbit’ untuk publik, ‘draft’ untuk pribadi/masih ditulis         |
+| created_at    | Timestamps  | Tanggal dan waktu akun dibuat           |
+| updated_at    | Timestamps  | Tanggal dan waktu akun diperbarui       |
 
 ### 3. `pemerintahs`
 
