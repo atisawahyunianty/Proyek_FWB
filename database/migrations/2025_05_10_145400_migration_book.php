@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('title');
-            $table->string('description');
-            $table->string('cover_image');
-            $table->enum('status', ['terbit', 'draft']); 
+            $table->string('judul');                
+            $table->string('penulis');              
+            $table->text('isi');                   
+            $table->string('cover_image');    
             $table->timestamps();
-        });
+});
+
     }
 
     /**

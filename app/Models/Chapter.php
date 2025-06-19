@@ -10,10 +10,10 @@ class Chapter extends Model
 {
     protected $table = 'chapters';
 
-    protected $fillable = ['book_id', 'title', 'content', 'chapter_number'];
+    protected $fillable = ['book_id', 'title', 'content'];
 
     public function book()
     {
-        return $this->belongsTo(Book::class); 
+        return $this->belongsTo(Book::class, 'book_id'); 
     }
 }

@@ -1,39 +1,29 @@
-<?php
+<!-- <?php
+// app/Models/User.php
+// namespace App\Models;
 
-namespace App\Models;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Notifications\Notifiable;
 
-use Illuminate\Database\Eloquent\Model;
-
-use App\Models\Book;  
-use App\Models\Review;  
-use App\Models\Bookmark;
-use App\Models\Profil;  
-
-
-class Users extends Model
+class User extends Authenticatable
 {
-    protected $table = 'users';
+//     use HasFactory, Notifiable;
 
-    protected $fillable = ['username', 'email', 'password', 'role'];
+//     protected $fillable = ['username', 'email', 'password', 'role'];
 
-    public function books()
-    {
-        return $this->hasMany(Book::class);
-    }
+//     public function books()
+//     {
+//         return $this->hasMany(Book::class);
+//     }
 
-    public function reviews()
-    {
-        return $this->hasMany(Review::class); 
-    }
+//     public function bookmarks()
+//     {
+//         return $this->hasMany(Bookmark::class); 
+//     }
 
-    public function bookmarks()
-    {
-        return $this->hasMany(Bookmark::class); 
-    }
-
-    public function profil()
-    {
-        return $this->hasOne(Profil::class);
-    }
-
+//     public function profil()
+//     {
+//         return $this->hasOne(Profil::class);
+//     }
 }

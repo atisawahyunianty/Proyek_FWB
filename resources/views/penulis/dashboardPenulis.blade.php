@@ -3,6 +3,7 @@
 @section('content')
 <!-- Page Wrapper -->
 <div id="wrapper">
+
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
         <!-- Sidebar - Brand -->
@@ -11,15 +12,12 @@
                 <i class="fas fa-user-shield"></i>
             </div>
             <div class="sidebar-brand-text mx-3 font-weight-bold text-white">
-                Admin
+                Penulis
             </div>
         </a>
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
-
-        <!-- Nav Item - Dashboard -->
-
 
         <!-- Divider -->
         <hr class="sidebar-divider">
@@ -28,37 +26,40 @@
         <div class="sidebar-heading">Interface</div>
 
         <!-- Sidebar Menu -->
-        
-       <!-- Sidebar Menu -->
-        @if(Auth::user()->role === 'admin')
+        @if(Auth::user()->role === 'penulis')
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ url('dashboard') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
 
-        <li class="nav-item active">
-            <a class="nav-link" href="{{ url('dashboard') }}">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span>
-            </a>
-        </li>
             <li class="nav-item">
-    <a class="nav-link" href="{{ route('admin.KelolaBuku') }}">
-        <i class="fas fa-book"></i> Kelola Buku
-    </a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('admin.KelolaPengguna') }}">
-        <i class="fas fa-users"></i> Kelola Pengguna
-    </a>
-</li>
+                <a class="nav-link" href="{{ route('penulis.tambahBuku') }}">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Tambah Buku</span>
+                </a>
+            </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('penulis.lihatBuku') }}">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Lihat Buku</span>
+                </a>
+            </li>
         @endif
     </ul>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
+
         <!-- Main Content -->
         <div id="content">
+
             <!-- Topbar -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
                 <!-- Sidebar Toggle (Topbar) -->
                 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                     <i class="fa fa-bars"></i>
@@ -66,6 +67,7 @@
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
+
                     <!-- Search Dropdown (Visible Only XS) -->
                     <li class="nav-item dropdown no-arrow d-sm-none">
                         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -85,18 +87,29 @@
                         </div>
                     </li>
 
-                    <!-- User Information -->
+                    <!-- User Info Dropdown -->
+                    @php
+                        $profil = \App\Models\Profil::where('user_id', auth()->id())->first();
+                    @endphp
+
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-primary small font-weight-bold">
                                 {{ Auth::user()->name }}
                             </span>
-                            <i class="fas fa-user-shield fa-lg text-primary"></i>
+                            <img 
+                                src="{{ $profil && $profil->profile_photo ? asset('storage/' . $profil->profile_photo) : asset('default/profile.png') }}" 
+                                class="img-profile rounded-circle"
+                                width="40"
+                                height="40"
+                                style="object-fit: cover;"
+                                alt="Foto Profil">
                         </a>
+
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href="{{ route('penulis.profil') }}">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Profile
+                                Profil Saya
                             </a>
                             <div class="dropdown-divider"></div>
                             <form method="POST" action="{{ route('logout') }}">
@@ -112,33 +125,31 @@
             </nav>
             <!-- End of Topbar -->
 
-            
-                <!-- Page Heading -->
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                        <i class="fas fa-download fa-sm text-white-50"></i> Lihat Laporan
-                    </a>
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    <i class="fas fa-download fa-sm text-white-50"></i> Lihat Laporan
+                </a>
+            </div>
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+                <div class="container-fluid d-flex justify-content-center align-items-center" style="height: calc(100vh - 160px);">
+                    <div class="card shadow p-5 text-center">
+                        <div class="card-body">
+                            <h1 class="text-info font-weight-bold mb-3">
+                                <i class="fas fa-book"></i> Selamat Datang
+                            </h1>
+                            <p class="lead text-gray-800">di Halaman Penulis</p>
+                            <p class="text-muted small">Silakan mulai dengan memilih menu di samping kiri.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- Begin Page Content -->
-
-            <div class="container-fluid">
-    <div class="container-fluid d-flex justify-content-center align-items-center" style="height: calc(100vh - 160px);">
-        <div class="card shadow p-5 text-center">
-            <div class="card-body">
-                <h1 class="text-primary font-weight-bold mb-3">
-                    <i class="fas fa-user-shield"></i> Selamat Datang, Admin
-                </h1>
-                <p class="lead text-dark">Anda berada di Panel Administrator</p>
-                <p class="text-muted small">Kelola pengguna, buku, dan sistem dengan bijak melalui menu di samping kiri.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
             <!-- /.container-fluid -->
-    
+
+        </div>
         <!-- End of Main Content -->
 
         <!-- Footer -->
@@ -150,8 +161,10 @@
             </div>
         </footer>
         <!-- End of Footer -->
+
     </div>
     <!-- End of Content Wrapper -->
+
 </div>
 <!-- End of Page Wrapper -->
 
