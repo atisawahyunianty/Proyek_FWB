@@ -5,14 +5,14 @@
     <div class="card shadow-lg rounded-4 px-4 py-5" style="max-width: 600px; width: 100%;">
         
         <!-- Foto Profil -->
-        <div class="text-center mb-4">
+        {{-- <div class="text-center mb-4">
             @if ($profil && $profil->profile_photo)
                 <img src="{{ asset('storage/' . $profil->profile_photo) }}"
                      class="rounded-circle border border-3 border-primary shadow-sm"
                      width="130"
                      height="130"
-                     style="object-fit: cover;">
-            @else
+                     style="object-fit: cover;"> --}}
+            {{-- @else
                 <i class="bi bi-person-circle text-primary" style="font-size: 6rem;"></i>
             @endif
 
@@ -22,7 +22,7 @@
             <p class="text-muted mb-0">{{ auth()->user()->email }}</p>
         </div>
 
-        <hr class="my-4">
+        <hr class="my-4"> --}}
 
         <!-- Informasi Profil -->
         <div class="px-1">

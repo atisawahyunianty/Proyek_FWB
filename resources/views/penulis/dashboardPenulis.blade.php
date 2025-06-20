@@ -97,14 +97,15 @@
                             <span class="mr-2 d-none d-lg-inline text-primary small font-weight-bold">
                                 {{ Auth::user()->name }}
                             </span>
-                            <img 
+                             <i class="fas fa-user-shield fa-lg text-primary"></i>
+                            {{-- <img 
                                 src="{{ $profil && $profil->profile_photo ? asset('storage/' . $profil->profile_photo) : asset('default/profile.png') }}" 
                                 class="img-profile rounded-circle"
                                 width="40"
                                 height="40"
                                 style="object-fit: cover;"
                                 alt="Foto Profil">
-                        </a>
+                        </a> --}}
 
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                             <a class="dropdown-item d-flex align-items-center" href="{{ route('penulis.profil') }}">

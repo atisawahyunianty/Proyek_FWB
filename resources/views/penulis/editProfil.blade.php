@@ -6,7 +6,7 @@
         <h3 class="mb-4 text-center fw-bold text-primary">Edit Profil</h3>
 
         {{-- Flash success --}}
-        @if (session('success'))
+         @if (session('success'))
             <div class="alert alert-success text-center">
                 {{ session('success') }}
             </div>
@@ -14,10 +14,10 @@
 
         <form action="{{ route('penulis.updateProfil') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            @method('PATCH')
+            @method('PATCH') 
 
             <!-- Foto Profil Saat Ini -->
-            <div class="mb-4 text-center">
+            {{-- <div class="mb-4 text-center">
                 @if ($profil && $profil->profile_photo)
                     <img src="{{ asset('storage/' . $profil->profile_photo) }}" 
                          alt="Foto Profil" 
@@ -33,19 +33,19 @@
                          height="120" 
                          style="object-fit: cover;">
                 @endif
-            </div>
+            </div> --}}
 
             <!-- Input Nama -->
             <div class="mb-3">
                 <label for="name" class="form-label fw-semibold">Nama</label>
                 <input type="text" name="name" class="form-control" value="{{ $profil->name ?? '' }}" required>
-            </div>
+            </div> 
 
             <!-- Input Foto -->
-            <div class="mb-4">
+            {{-- <div class="mb-4">
                 <label for="foto" class="form-label fw-semibold">Foto Profil</label>
                 <input type="file" name="foto" class="form-control">
-            </div>
+            </div> --}}
 
             <!-- Tombol -->
             <div class="d-flex justify-content-between">
@@ -57,4 +57,4 @@
         </form>
     </div>
 </div>
-@endsection
+@endsection 
